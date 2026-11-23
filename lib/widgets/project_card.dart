@@ -3,6 +3,13 @@ import 'package:myportofolio_mobile/screens/education_form.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
 
+
+/// Kartu aksi interaktif pada halaman utama yang menampilkan ikon, label,
+/// dan warna latar unik sesuai properti [ItemHomepage].
+///
+/// Menampilkan umpan balik [SnackBar] saat ditekan dan membuka halaman formulir
+/// terkait menggunakan [Navigator.push] agar pengguna dapat kembali lewat
+/// tombol Back perangkat atau browser.
 class ItemCard extends StatelessWidget {
   final ItemHomepage item;
 

@@ -3,6 +3,12 @@ import 'package:myportofolio_mobile/screens/education_form.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
 
+
+/// Komponen navigasi samping (drawer) yang digunakan ulang pada halaman utama
+/// dan seluruh halaman formulir agar struktur navigasi tetap konsisten.
+///
+/// Menggunakan [Navigator.pushReplacement] agar perpindahan antarhalaman utama
+/// melalui drawer tidak menumpuk stack navigasi secara berulang.
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
 

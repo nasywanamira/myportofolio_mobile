@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 
+/// Halaman formulir untuk menambahkan riwayat pendidikan (Education) baru.
+///
+/// Menggunakan [StatefulWidget] dan [GlobalKey<FormState>] untuk mengelola
+/// state input, validasi aturan model (field wajib, batas panjang karakter,
+/// format 4 digit tahun, serta urutan tahun), dan menampilkan ringkasan data
+/// dalam [AlertDialog] setelah seluruh input lolos validasi.
+/// 
 class EducationFormPage extends StatefulWidget {
   const EducationFormPage({super.key});
 
@@ -9,6 +16,7 @@ class EducationFormPage extends StatefulWidget {
 }
 
 class _EducationFormPageState extends State<EducationFormPage> {
+  /// Kunci unik untuk mengakses state [Form] guna memicu validasi dan reset.
   final _formKey = GlobalKey<FormState>();
 
   String _institution = "";
@@ -241,6 +249,7 @@ class _EducationFormPageState extends State<EducationFormPage> {
                       backgroundColor: WidgetStateProperty.all(primaryColor),
                     ),
                     onPressed: () {
+                      // Memvalidasi seluruh field sebelum menampilkan AlertDialog ringkasan data.
                       if (_formKey.currentState!.validate()) {
                         final displayedEndYear = _endYear.trim().isEmpty
                             ? "Present"
