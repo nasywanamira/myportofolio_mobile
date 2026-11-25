@@ -6,7 +6,6 @@ import 'package:myportofolio_mobile/services/auth_state.dart';
 import 'package:myportofolio_mobile/widgets/auth_guard.dart';
 import 'package:provider/provider.dart';
 
-
 /// Kartu aksi interaktif pada halaman utama yang menampilkan ikon, label,
 /// dan warna latar unik sesuai properti [ItemHomepage].
 ///
@@ -27,8 +26,8 @@ class ItemCard extends StatelessWidget {
       child: InkWell(
         // Aksi ketika kartu ditekan oleh pengguna.
         onTap: () async {
-            if (item.name == "Tambah Proyek") {
-              final loggedIn = await ensureLoggedIn(context);
+          if (item.name == "Tambah Proyek") {
+            final loggedIn = await ensureLoggedIn(context);
             if (!loggedIn || !context.mounted) return;
             Navigator.push(
               context,
@@ -36,37 +35,37 @@ class ItemCard extends StatelessWidget {
                 builder: (context) => const ProjectFormPage(),
               ),
             );
-            } else if (item.name == "Tambah Education") {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (context) => const EducationFormPage(),
-                ),
-              );
-            } else if (item.name == "Logout") {
-              final authState = context.read<AuthState>();
-              if (!authState.isLoggedIn) {
-                ScaffoldMessenger.of(context)
+          } else if (item.name == "Tambah Education") {
+            Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (context) => const EducationFormPage(),
+              ),
+            );
+          } else if (item.name == "Logout") {
+            final authState = context.read<AuthState>();
+            if (!authState.isLoggedIn) {
+              ScaffoldMessenger.of(context)
                 ..hideCurrentSnackBar()
                 ..showSnackBar(
                   const SnackBar(content: Text('Kamu belum login.')),
                 );
-                return;
-              }
-              await authState.logout();
-              if (!context.mounted) return;
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(
-                  const SnackBar(content: Text('Berhasil logout!')),
-                );
-            } else {
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(
-                  SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!")),
-                );
+              return;
             }
+            await authState.logout();
+            if (!context.mounted) return;
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(const SnackBar(content: Text('Berhasil logout!')));
+          } else {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text("Kamu telah menekan tombol ${item.name}!"),
+                ),
+              );
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(8),
@@ -74,11 +73,7 @@ class ItemCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
+                Icon(item.icon, color: Colors.white, size: 30.0),
                 const Padding(padding: EdgeInsets.all(3)),
                 Text(
                   item.name,

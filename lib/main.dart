@@ -17,9 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<ApiClient>.value(value: apiClient),
-        ChangeNotifierProvider<AuthState>(
-          create: (_) => AuthState(apiClient),
-        ),
+        ChangeNotifierProvider<AuthState>(create: (_) => AuthState(apiClient)),
       ],
       child: MaterialApp(
         title: 'MyPortfolio',

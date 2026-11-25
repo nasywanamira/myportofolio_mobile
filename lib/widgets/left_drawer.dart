@@ -24,7 +24,9 @@ class LeftDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+            ),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -84,7 +86,9 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute<void>(builder: (_) => const EducationFormPage()),
+                MaterialPageRoute<void>(
+                  builder: (_) => const EducationFormPage(),
+                ),
               );
             },
           ),

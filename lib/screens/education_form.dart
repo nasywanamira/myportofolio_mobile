@@ -7,7 +7,7 @@ import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 /// state input, validasi aturan model (field wajib, batas panjang karakter,
 /// format 4 digit tahun, serta urutan tahun), dan menampilkan ringkasan data
 /// dalam [AlertDialog] setelah seluruh input lolos validasi.
-/// 
+///
 class EducationFormPage extends StatefulWidget {
   const EducationFormPage({super.key});
 
@@ -42,9 +42,7 @@ class _EducationFormPageState extends State<EducationFormPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('Add Education Form'),
-        ),
+        title: const Center(child: Text('Add Education Form')),
         backgroundColor: primaryColor,
         foregroundColor: Colors.white,
       ),
@@ -170,7 +168,10 @@ class _EducationFormPageState extends State<EducationFormPage> {
                       return "Tahun mulai tidak boleh kosong!";
                     }
                     final year = int.tryParse(trimmed);
-                    if (trimmed.length != 4 || year == null || year < 1950 || year > 2100) {
+                    if (trimmed.length != 4 ||
+                        year == null ||
+                        year < 1950 ||
+                        year > 2100) {
                       return "Masukkan 4 digit tahun yang valid (1950–2100)!";
                     }
                     return null;
@@ -201,7 +202,10 @@ class _EducationFormPageState extends State<EducationFormPage> {
                       return null;
                     }
                     final endYearInt = int.tryParse(trimmed);
-                    if (trimmed.length != 4 || endYearInt == null || endYearInt < 1950 || endYearInt > 2100) {
+                    if (trimmed.length != 4 ||
+                        endYearInt == null ||
+                        endYearInt < 1950 ||
+                        endYearInt > 2100) {
                       return "Masukkan 4 digit tahun yang valid atau kosongkan!";
                     }
                     final startYearInt = int.tryParse(_startYear.trim());
@@ -219,7 +223,8 @@ class _EducationFormPageState extends State<EducationFormPage> {
                 child: TextFormField(
                   maxLines: 4,
                   decoration: InputDecoration(
-                    hintText: "Aktivitas, organisasi, atau pencapaian (opsional)",
+                    hintText:
+                        "Aktivitas, organisasi, atau pencapaian (opsional)",
                     labelText: "Deskripsi",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
@@ -262,7 +267,9 @@ class _EducationFormPageState extends State<EducationFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Edukasi berhasil ditambahkan!'),
+                              title: const Text(
+                                'Edukasi berhasil ditambahkan!',
+                              ),
                               content: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

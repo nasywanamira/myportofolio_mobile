@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 import 'package:myportofolio_mobile/widgets/project_card.dart';
 
-
 /// Halaman utama aplikasi portofolio mobile yang menampilkan profil singkat
 /// pemilik ([InfoCard]) dan daftar kartu aksi navigasi ([ItemCard]).
 ///
@@ -96,7 +95,6 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
 
 /// Kartu ringkas untuk menampilkan sepasang label ([title]) dan nilai ([content])
 /// identitas pemilik portofolio secara konsisten.

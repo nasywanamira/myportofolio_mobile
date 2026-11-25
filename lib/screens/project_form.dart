@@ -22,14 +22,14 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
   String _projectUrl = '';
   String _projectImageUrl = '';
   bool _isSubmitting = false;
-  
+
   bool _isValidHttpUrl(String value) {
     final uri = Uri.tryParse(value);
     return uri != null &&
         (uri.scheme == 'http' || uri.scheme == 'https') &&
         uri.host.isNotEmpty;
   }
-  
+
   Future<void> _submit() async {
     final form = _formKey.currentState!;
     if (!form.validate()) return;
@@ -54,9 +54,10 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
     );
 
     try {
-      final created = await context
-          .read<ApiClient>()
-          .createProject(newProject, token: token);
+      final created = await context.read<ApiClient>().createProject(
+        newProject,
+        token: token,
+      );
       if (!mounted) return;
       await showDialog<void>(
         context: context,
@@ -113,7 +114,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
       }
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,22 +213,22 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
               ),
               const SizedBox(height: 24),
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Colors.white,
-                  ),
-                  onPressed: _isSubmitting ? null : _submit,
-                  child: _isSubmitting
-                      ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
-                          ),
-                        )
-                      : const Text('Save')
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Colors.white,
                 ),
+                onPressed: _isSubmitting ? null : _submit,
+                child: _isSubmitting
+                    ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.white,
+                        ),
+                      )
+                    : const Text('Save'),
+              ),
             ],
           ),
         ),

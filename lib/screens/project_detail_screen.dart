@@ -46,23 +46,20 @@ class ProjectDetailScreen extends StatelessWidget {
             ],
             Text(
               project.title,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(context).textTheme.headlineSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
               'Tech Stack: ${project.techStack}',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+              style: Theme.of(context).textTheme.titleMedium
+                  ?.copyWith(color: Theme.of(context).colorScheme.primary),
             ),
             const SizedBox(height: 16),
             Text(
               'Description',
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(context).textTheme.titleSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             Text(
@@ -72,9 +69,8 @@ class ProjectDetailScreen extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               'Project URL',
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(context).textTheme.titleSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
             SelectableText(

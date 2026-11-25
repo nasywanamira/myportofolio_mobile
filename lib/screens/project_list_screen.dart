@@ -75,9 +75,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height * 0.7,
-                  child: const Center(
-                    child: Text('No projects found.'),
-                  ),
+                  child: const Center(child: Text('No projects found.')),
                 ),
               ),
             );
