@@ -82,7 +82,7 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.school_outlined),
+            leading: const Icon(Icons.add_box_outlined),
             title: const Text('Education'),
             onTap: () {
               Navigator.pushReplacement(
@@ -94,10 +94,12 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.school_outlined),
+            leading: const Icon(Icons.add_box_outlined),
             title: const Text('Add Education'),
-            onTap: () {
-              Navigator.pushReplacement(
+            onTap: () async {
+              final loggedIn = await ensureLoggedIn(context);
+              if (!loggedIn || !context.mounted) return;
+              await Navigator.pushReplacement(
                 context,
                 MaterialPageRoute<void>(
                   builder: (_) => const EducationFormPage(),
