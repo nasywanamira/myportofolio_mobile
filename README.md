@@ -1,6 +1,19 @@
+[![CI](https://github.com/nasywanamira/myportofolio_mobile/actions/workflows/main.yaml/badge.svg)](https://github.com/nasywanamira/myportofolio_mobile/actions/workflows/main.yaml)
+
 Nama : Nasywa Namira Suhendro
 NPM : 2506532196
 Kelas : PBP C
+
+## Backend Integration & Setup
+
+- **Backend Django Repository:** https://github.com/nasywanamira/myportofolio
+- **Deployed API (PWS):** https://nasywa-namira-myportofolio.pws.cs.ui.ac.id
+
+### Menjalankan Secara Lokal
+
+1. Pastikan dependensi Flutter terpasang:
+   ```bash
+   flutter pub get
 
 ### Tugas 7
 
