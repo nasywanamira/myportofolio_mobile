@@ -5,6 +5,7 @@ import 'package:myportofolio_mobile/screens/project_form.dart';
 import 'package:myportofolio_mobile/services/auth_state.dart';
 import 'package:myportofolio_mobile/widgets/auth_guard.dart';
 import 'package:provider/provider.dart';
+import 'package:myportofolio_mobile/screens/education_list_screen.dart';
 
 /// Kartu aksi interaktif pada halaman utama yang menampilkan ikon, label,
 /// dan warna latar unik sesuai properti [ItemHomepage].
@@ -26,7 +27,14 @@ class ItemCard extends StatelessWidget {
       child: InkWell(
         // Aksi ketika kartu ditekan oleh pengguna.
         onTap: () async {
-          if (item.name == "Tambah Proyek") {
+          if (item.name == "Lihat Education") {
+            await Navigator.push(
+              context,
+              MaterialPageRoute<void>(
+                builder: (context) => const EducationListScreen(),
+              ),
+            );
+          } else if (item.name == "Tambah Proyek") {
             final loggedIn = await ensureLoggedIn(context);
             if (!loggedIn || !context.mounted) return;
             Navigator.push(
@@ -36,7 +44,9 @@ class ItemCard extends StatelessWidget {
               ),
             );
           } else if (item.name == "Tambah Education") {
-            Navigator.push(
+            final loggedIn = await ensureLoggedIn(context);
+            if (!loggedIn || !context.mounted) return;
+            await Navigator.push(
               context,
               MaterialPageRoute<void>(
                 builder: (context) => const EducationFormPage(),

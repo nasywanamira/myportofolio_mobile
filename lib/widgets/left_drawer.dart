@@ -7,6 +7,7 @@ import 'package:myportofolio_mobile/screens/project_list_screen.dart';
 import 'package:myportofolio_mobile/services/auth_state.dart';
 import 'package:myportofolio_mobile/widgets/auth_guard.dart';
 import 'package:provider/provider.dart';
+import 'package:myportofolio_mobile/screens/education_list_screen.dart';
 
 /// Komponen navigasi samping (drawer) yang digunakan ulang pada halaman utama
 /// dan seluruh halaman formulir agar struktur navigasi tetap konsisten.
@@ -76,6 +77,18 @@ class LeftDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute<void>(
                   builder: (_) => const ProjectFormPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.school_outlined),
+            title: const Text('Education'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (_) => const EducationListScreen(),
                 ),
               );
             },
